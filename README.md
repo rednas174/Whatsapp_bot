@@ -1,7 +1,7 @@
 # Whatsapp bot
 
-This is a whatsapp bot made by rednas174 in Flask to serve as a server.
-the IP is not exposed and doesn't need to be port forwarded.
+This is a whatsapp bot made by hirasloth in Flask to serve as a server.  
+The IP is not exposed and doesn't need to be port forwarded.
 
 
 ## Requirements
@@ -37,9 +37,7 @@ Use the provided app:
 ## Tips 'n Tricks
 
 Keep the phone on a charger and have both apps open in RAM, but turn the phone into standby mode with whatsapp as open.
-I don't know why, but this setup keeps it working.
-
-I myself used a Raspberry Pi 3B+ and a Nokia 7 plus.
+I don't know why, but this setup keeps it working. I myself used a Raspberry Pi 3B+ and a Nokia 7 plus.
 
 
 ## Contributing
