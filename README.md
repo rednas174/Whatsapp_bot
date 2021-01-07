@@ -1,6 +1,6 @@
 # Whatsapp bot
 
-This is a whatsapp bot made by hirasloth in Flask to serve as a server.
+This is a whatsapp bot made by rednas174 in Flask to serve as a server.
 the IP is not exposed and doesn't need to be port forwarded.
 
 
