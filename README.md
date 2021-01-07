@@ -1,7 +1,7 @@
 # Whatsapp bot
 
 This is a whatsapp bot made by hirasloth in Flask to serve as a server.  
-The IP is not exposed and doesn't need to be port forwarded.
+The IP is not exposed and doesn't need to be port forwarded. It is only reachable within the network itself.
 
 
 ## Requirements
@@ -31,7 +31,7 @@ Use the provided app:
 - Enter the "/roll" pattern under "Received message pattern"
 - I personally use "Start with".
 - Scroll down and select "Connect to own server".
-- Enter "https://<your ip here>:5000"
+- Enter "https://your_ip_here:5000"
 - Leave the rest as-is.
 
 ## Tips 'n Tricks
