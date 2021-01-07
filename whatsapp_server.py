@@ -111,7 +111,10 @@ You can also add a constant by doing this '/roll 5D6+13'.""")
             # Print the error, and move on. NO THIS DOES NOT BOTHER ME AT ALL.
             print(e)
             return genSendData("Oops, something went wrong, type '/roll help' for info about the syntax")
-        
+
+    elif a['receiveMessagePattern'][0] == "/link": 
+        return genSendData("https://chat.whatsapp.com/L2xVHEBzWDM0cXWjif8TDf")
+
         
     # Handle if the message comes from the /create_character trigger ----------
     if a['receiveMessagePattern'][0] == "/create_character":
