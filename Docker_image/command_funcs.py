@@ -26,6 +26,12 @@ dummyStr_1 = """\"
    ]
 }"""
 
+def split(command, character):
+    items = command.split(character)
+    if len(items) == 1:
+        items.append("")
+    return items
+
 # Sandwich the message between the JSON code thingies
 def genSendData(data):
     return(dummyStr + data + dummyStr_1)
@@ -36,16 +42,17 @@ def command_roll(command):
     output_data = ""
     
     # Handle the "help" command
-    items = command.split(" ")
+    items = split(command, " ")
     if items[1] == "help":
-        return genSendData("""Syntax help for the /roll command:
-The syntax is /roll <whole number>D<whole number>
-For instance: '/roll 3D8' is a valid input.
-You can also add a constant by doing this '/roll 5D6+13'.""")
+        return genSendData("Syntax help for the /roll command:\n"
+                         + "The syntax is\n"
+                         + "/roll <whole number>D<whole number>\n\n"
+                         + "For instance: '/roll 3D8' is a valid input.\n"
+                         + "You can also add a constant by doing this '/roll 5D6+13'.\n")
 
-    if items[1] == "joint":
+    elif items[1] == "joint":
         return genSendData("Hierbij een bon voor een gratis JONKO!")
-
+    
     # Splits the xDy into x and y, splitsing on the character 'D' (of 'd' for geklapte jonkos who can't follow basic instructions).
     items[1] = items[1].upper()
     amount, dice_size = items[1].split("D")
@@ -79,12 +86,31 @@ You can also add a constant by doing this '/roll 5D6+13'.""")
 
 
 def command_link(command):
+    items = split(command, " ")
+    if items[1] == "help":
+        return genSendData("Syntax help for the /link command:\n"
+                         + "just use \'/link\'...\n"
+                         + "Out of sheer spite I will make you retype the command\n"
+                         + ">:D\n")
     return genSendData("https://chat.whatsapp.com/L2xVHEBzWDM0cXWjif8TDf")
 
 
 
 def command_create_character(command):
-    return genSendData("""Unfortunately, this hasn't been implemented yet.
-As a substitude, go to 
-https://levi-blodgett.github.io/dnd-char-generator/#top
-for a charactersheet randomizer""")
+    items = split(command, " ")
+    if items[1] == "help":
+        return genSendData("Syntax help for the /create_character command:\n"
+                         + "just use \'/create_character\'...")
+    return genSendData("Unfortunately, this hasn't been implemented yet.\n"
+                     + "As a substitude, go to\n"
+                     + "https://levi-blodgett.github.io/dnd-char-generator/#top\n"
+                     + "for a charactersheet randomizer.")
+
+
+def command_help(command):
+    return genSendData("Current commands available:\n"
+                     + "/create_character\n"
+                     + "/help\n"
+                     + "/link\n"
+                     + "/roll\n"
+                     + "Add \'help\' after a command to get the syntax.")
