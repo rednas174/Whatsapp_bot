@@ -67,7 +67,7 @@ def command_roll(command):
     
     # Split and check if amount of rolls isn't absurdly high
     amount, dice_size = int(amount), int(dice_size)
-    if amount > 1000:
+    if amount > 10000:
         return genSendData("Sorry, but this is too many dice rolls...")
 
     # Roll x amount of dice with size y
@@ -80,7 +80,7 @@ def command_roll(command):
         total += current_roll
 
     # If the amount of thrown dice is larger than 10, only output the total
-    if amount < 10:
+    if amount <= 10:
         for i in range(amount):
             output_data += "Roll " + str(i + 1) + " = " + str(rolls[i]) + "\n"
         output_data += "\n"
