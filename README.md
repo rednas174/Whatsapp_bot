@@ -44,13 +44,13 @@ pip install flask
 
 Use the provided app:
 
-- Tap "+"
-- Choose "WA Official"
-- Enter the "/roll" pattern under "Received message pattern"
-- I personally use "Start with".
+- Tap "+".
+- Choose "WA Official".
+- Set "Received message pattern" to "/".
+- Set to "Start with".
 - Scroll down and select "Connect to own server".
-- Enter "https://your_ip_here:5000"
-- Change "Reply to" to "Both"
+- Enter "https://your_ip_here:5000".
+- Change "Reply to" to "Both".
 - Leave the rest as-is.
 - Press ✔ and Endure the ad.
 
