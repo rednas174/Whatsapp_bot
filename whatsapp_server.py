@@ -106,6 +106,9 @@ You can also add a constant by doing this '/roll 5D6+13'.""")
                 output_data += "with added bonus of " + str(offset) + " "
             output_data += "= " + str(total + offset)
             return (genSendData(output_data))
+
+        elif a['receiveMessagePattern'][0] == "/link": 
+            return genSendData("https://chat.whatsapp.com/L2xVHEBzWDM0cXWjif8TDf")
         
         except Exception as e:
             # Print the error, and move on. NO THIS DOES NOT BOTHER ME AT ALL.
