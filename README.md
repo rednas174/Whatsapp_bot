@@ -32,6 +32,7 @@ Use the provided app:
 - I personally use "Start with".
 - Scroll down and select "Connect to own server".
 - Enter "https://your_ip_here:5000"
+- Change "Reply to" to "Both"
 - Leave the rest as-is.
 
 ## Tips 'n Tricks
