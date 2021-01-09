@@ -6,25 +6,7 @@ Created on Fri Jan  8 15:39:32 2021
 """
 
 import random
-
-# Part 2 of necessary message       
-dummyStr_1 = """\"
-      }
-   ]
-}"""
-
-# Part one of necessary message
-dummyStr = """{
-  "data":[
-      {
-       "message":\""""
-       
-
-# Part 2 of necessary message       
-dummyStr_1 = """\"
-      }
-   ]
-}"""
+import json
 
 
 # Split the command on a character and always return an array with at least length 2
@@ -35,9 +17,23 @@ def split(command, character):
     return items
 
 
-# Sandwich the message between the JSON code thingies
 def genSendData(data):
-    return(dummyStr + data + dummyStr_1)
+    """This function converts the given data to a JSON
+    string that can be passed to WhatsApp to send a message.
+
+    Args:
+        data (string): The message to be sent.
+    """
+
+    message_data = {
+        "data": [
+            {
+                "message": data,
+            },
+        ]
+    }
+
+    return(json.dumps(message_data))
 
 
 # Command to roll dice
