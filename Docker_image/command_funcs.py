@@ -5,8 +5,8 @@ Created on Fri Jan  8 15:39:32 2021
 @author: Sander
 """
 
-import random
 import json
+import random
 
 
 # Split the command on a character and always return an array with at least length 2
@@ -15,6 +15,47 @@ def split(command, character):
     if len(items) == 1:
         items.append("")
     return items
+
+
+def parseInt(to_convert, base=None):
+    """Converts a string to an integer with the
+    given base. If base is None and the string starts
+    with a 0, automatically resolve the given base.
+
+    Supported bases are:
+    - 0x: Hexadecimal
+    - 0o or 0: Octal
+
+    The rest is interpreted as base 10.
+
+    Args:
+        to_convert (string): The string to convert to an int.
+        base (int, optional): Assume to_convert is in this base. If none, get the base from the string. Defaults to None.
+
+    Raises:
+        ValueError: If to_convert cannot be converted.
+
+    Returns:
+        int: The converted integer.
+    """
+
+    # Check if a base representation is given in the string
+    # and it is requested that we auto determine the base.
+    if base is None and len(to_convert) > 1 and to_convert[0] == "0":
+        # Hexadecimal.
+        if to_convert[1].lower() == "x":
+            base = 16
+        
+        # Octal.
+        else:
+            base = 8
+    
+    # Otherwise we assume the base is 10.
+    else:
+        base = 10
+
+    # Try to convert the number.
+    return int(to_convert, base)
 
 
 def genSendData(data):
@@ -62,7 +103,7 @@ def command_roll(command):
         offset = int(offset)
     
     # Split and check if amount of rolls isn't absurdly high
-    amount, dice_size = int(amount), int(dice_size)
+    amount, dice_size = parseInt(amount), parseInt(dice_size)
     if amount > 10000:
         return genSendData("Sorry, but this is too many dice rolls...")
 
