@@ -81,7 +81,6 @@ def parse_int(to_convert:str):
     Returns:
         int: The converted integer.
     """
-    
     to_convert = to_convert.lower()
     
     # Determine which system this uses
@@ -93,7 +92,7 @@ def parse_int(to_convert:str):
     
     elif re.match("0o.*", to_convert):
         base = 8
-    
+
     else:
         base = 10
 

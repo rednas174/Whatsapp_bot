@@ -34,7 +34,6 @@ def roll_dice(command:str):
     
     # Split and check if amount of rolls isn't absurdly high
     amount, dice_size = utils.parse_int(amount), utils.parse_int(dice_size)
-
     # Generate array of random dicerolls
 
     total = 0
@@ -45,8 +44,15 @@ def roll_dice(command:str):
             output_data += "Roll " + str(i + 1) + " = " + str(rolls[i]) + "\n"
         output_data += "\n"
     else:
-        total = math.floor(random.triangular(1,dice_size) * amount)
-
+        try:
+            # If you're the MF that enters a die that has more than 1e308 sides: fuck you
+            # This only keeps the last 308 numbers, not like anyone will notice
+            if len(str(dice_size)) > 308:
+                dice_size = int(str(dice_size)[-308:])
+            total = math.floor(random.triangular(1,dice_size))* amount
+        except Exception as e:
+            print(e)
+            return (utils.gen_send_data("Whoops, it looks like Tjeerd is still a fucking idiot otherwise this would've worked"))
     output_data += "Total roll "
     if offset > 0:
         output_data += "with added bonus of " + str(offset) + " "
