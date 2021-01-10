@@ -1,6 +1,7 @@
-from numpy.random import seed
-from numpy.random import randint as numpy_randint
+import random
+import math
 
+from numpy.random import randint as numpy_randint
 import bot.utils as utils
 
 def roll_dice(command:str):
@@ -33,17 +34,18 @@ def roll_dice(command:str):
     
     # Split and check if amount of rolls isn't absurdly high
     amount, dice_size = utils.parse_int(amount), utils.parse_int(dice_size)
-    if amount > 10000000:
-        return utils.gen_send_data("Sorry, but this is too many dice rolls...")
 
     # Generate array of random dicerolls
-    rolls = numpy_randint(0, dice_size, amount)
-    total = sum(rolls)
 
+    total = 0
     if amount <= 10:
+        rolls = numpy_randint(0, dice_size, amount)
+        total = sum(rolls)
         for i in range(amount):
             output_data += "Roll " + str(i + 1) + " = " + str(rolls[i]) + "\n"
         output_data += "\n"
+    else:
+        total = math.floor(random.triangular(1,dice_size) * amount)
 
     output_data += "Total roll "
     if offset > 0:
