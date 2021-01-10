@@ -44,8 +44,10 @@ def roll_dice(command:str):
             output_data += "Roll " + str(i + 1) + " = " + str(rolls[i]) + "\n"
         output_data += "\n"
     else:
-        total = math.floor(random.triangular(1,dice_size)) * amount
-
+        try:
+            total = math.floor(random.triangular(1,dice_size))* amount
+        except:
+            return (utils.gen_send_data("Whoops, it looks like Tjeerd is still a fucking idiot otherwise this would've worked"))
     output_data += "Total roll "
     if offset > 0:
         output_data += "with added bonus of " + str(offset) + " "
