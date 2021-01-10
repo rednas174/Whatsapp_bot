@@ -34,7 +34,6 @@ def roll_dice(command:str):
     
     # Split and check if amount of rolls isn't absurdly high
     amount, dice_size = utils.parse_int(amount), utils.parse_int(dice_size)
-
     # Generate array of random dicerolls
 
     total = 0
@@ -45,7 +44,7 @@ def roll_dice(command:str):
             output_data += "Roll " + str(i + 1) + " = " + str(rolls[i]) + "\n"
         output_data += "\n"
     else:
-        total = math.floor(random.triangular(1,dice_size) * amount)
+        total = math.floor(random.triangular(1,dice_size)) * amount
 
     output_data += "Total roll "
     if offset > 0:
