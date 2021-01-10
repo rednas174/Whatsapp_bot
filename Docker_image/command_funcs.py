@@ -60,6 +60,53 @@ def parseInt(to_convert:str):
     return int(to_convert, base)
 
 
+def splitRollData(data:str, delim:str = "D"):
+    """This function splits the roll data on the
+    amount of throws and the number of die sides.
+
+    It does this by splitting at the first encountered D,
+    unless the first number is in base 16 (hex). If it is,
+    it takes the last D of this number as split. This means
+    that it stops before the 2nd number notation.
+
+    /roll 5D8: No hexadecimal, first D matched. Returns ("5", "8",).
+    /roll 0xDD8: Hexadecimal, last D matched. Returns ("0xD", "8",).
+    /roll 5D0xDD: No hexadecimal, first D is matched. Returns ("5", "0xDD",).
+    /roll 0xDD0xDD: Hexadecimal, last D matched before 2nd base. Returns ("0xD", "0xDD",).
+
+    Args:
+        data (str): The argument passed to /roll. For example 1D0xDD.
+    """
+
+    split_last: bool = False
+
+    # Check if the first part is in hexadecimal.
+    # If so, split on the last D 
+    if len(data) > 1 and data[:2] == "0x":
+        split_last = True
+    
+    # Keep reading and appending to the result strings
+    # until what is described above.
+    split_index: int = -1
+    for i, character in enumerate(data):
+        # We stop at the first case we encounter the delimiter.
+        if character == delim and split_index < 0 and not split_last:
+            split_index = i
+            break
+
+        # Continue until the 2nd digit or the last D.
+        elif character == delim and split_last:
+            split_index = i
+        
+        # Check if the next part of the string is a new number,
+        # break if that is the case.
+        if len(data) > i + 3 and data[i + 1:i + 3] == "0x":
+            break
+
+    # Skip the D and return the two halves.
+    return data[:split_index], data[split_index + 1:],
+
+
 def genSendData(data:str):
     """This function converts the given data to a JSON
     string that can be passed to WhatsApp to send a message.
@@ -98,7 +145,7 @@ def command_roll(command:str):
     
     # Splits the xDy into x and y, splitsing on the character 'D' (of 'd' for geklapte jonkos who can't follow basic instructions).
     items[1] = items[1].upper()
-    amount, dice_size = items[1].split("D")
+    amount, dice_size = splitRollData(items[1], "D")
     offset = 0
     if "+" in dice_size:
         dice_size, offset = dice_size.split("+")
