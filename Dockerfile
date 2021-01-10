@@ -1,8 +1,6 @@
-FROM balenalib/raspberrypi3-alpine-python:3.7
-#FROM python:3.7
+FROM balenalib/raspberrypi3-debian:latest
 
-RUN apk add -U g++
-RUN apk add -U py3-numpy
+RUN install_packages python3 python3-pip python3-numpy python3-setuptools
 
 RUN pip3 install flask
 
