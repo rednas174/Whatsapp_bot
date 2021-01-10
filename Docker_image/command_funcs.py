@@ -7,17 +7,19 @@ Created on Fri Jan  8 15:39:32 2021
 
 import json
 import random
+import re
 
 
 # Split the command on a character and always return an array with at least length 2
-def split(command, character):
+def split(command:str, character:str):
+    
     items = command.split(character)
     if len(items) == 1:
         items.append("")
     return items
 
 
-def parseInt(to_convert, base=None):
+def parseInt(to_convert:str):
     """Converts a string to an integer with the
     given base. If base is None and the string starts
     with a 0, automatically resolve the given base.
@@ -38,19 +40,16 @@ def parseInt(to_convert, base=None):
     Returns:
         int: The converted integer.
     """
-
-    # Check if a base representation is given in the string
-    # and it is requested that we auto determine the base.
-    if base is None and len(to_convert) > 1 and to_convert[0] == "0":
-        # Hexadecimal.
-        if to_convert[1].lower() == "x":
-            base = 16
-        
-        # Octal.
-        else:
-            base = 8
     
-    # Otherwise we assume the base is 10.
+    to_convert = to_convert.lower()
+    
+    # Determine which system this uses
+    if re.match("0x.*", to_convert):
+        base = 16
+    
+    elif re.match("0o.*", to_convert):
+        base = 8
+    
     else:
         base = 10
 
@@ -58,7 +57,7 @@ def parseInt(to_convert, base=None):
     return int(to_convert, base)
 
 
-def genSendData(data):
+def genSendData(data:str):
     """This function converts the given data to a JSON
     string that can be passed to WhatsApp to send a message.
 
@@ -78,7 +77,7 @@ def genSendData(data):
 
 
 # Command to roll dice
-def command_roll(command):
+def command_roll(command:str):
     output_data = ""
     
     # Handle the "help" command, return instructions
@@ -129,8 +128,10 @@ def command_roll(command):
     return (genSendData(output_data))
 
 
+
 # Command to get the link of the Grasmaaier fanclub whatsapp group
-def command_link(command):
+def command_link(command:str):
+    
     items = split(command, " ")
     if items[1] == "help":
         return genSendData("Syntax help for the /link command:\n"
@@ -140,8 +141,10 @@ def command_link(command):
     return genSendData("https://chat.whatsapp.com/L2xVHEBzWDM0cXWjif8TDf")
 
 
+
 # Command to generate a random DnD character (WIP-ish)
-def command_create_character(command):
+def command_create_character(command:str):
+    
     items = split(command, " ")
     if items[1] == "help":
         return genSendData("Syntax help for the /create_character command:\n"
@@ -152,8 +155,10 @@ def command_create_character(command):
                      + "for a charactersheet randomizer.")
 
 
+
 # Command to get all available commands.
-def command_help(command):
+def command_help(command:str):
+    
     return genSendData("Current commands available:\n"
                      + "/create_character\n"
                      + "/help\n"
