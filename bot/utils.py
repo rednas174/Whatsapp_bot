@@ -35,7 +35,7 @@ def split_roll_data(data:str, delim:str = "D"):
 
     # Check if the first part is in hexadecimal.
     # If so, split on the last D 
-    if len(data) > 1 and data[:2].upper() == "0X":
+    if len(data) > 1 and data[:2].lower() == "0x":
         split_last = True
     
     # Keep reading and appending to the result strings
@@ -43,17 +43,17 @@ def split_roll_data(data:str, delim:str = "D"):
     split_index: int = -1
     for i, character in enumerate(data):
         # We stop at the first case we encounter the delimiter.
-        if character == delim and split_index < 0 and not split_last:
+        if character.lower() == delim.lower() and split_index < 0 and not split_last:
             split_index = i
             break
 
         # Continue until the 2nd digit or the last D.
-        elif character == delim and split_last:
+        elif character.lower() == delim.lower() and split_last:
             split_index = i
         
         # Check if the next part of the string is a new number,
         # break if that is the case.
-        if len(data) > i + 3 and data[i + 1:i + 3].upper() == "0X":
+        if len(data) > i + 3 and data[i + 1:i + 3].lower() == "0x":
             break
 
     # Skip the D and return the two halves.
