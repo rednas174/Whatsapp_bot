@@ -46,6 +46,9 @@ def parseInt(to_convert:str):
     # Determine which system this uses
     if re.match("0x.*", to_convert):
         base = 16
+
+    elif re.match("0b.*", to_convert):
+        base = 2
     
     elif re.match("0o.*", to_convert):
         base = 8
