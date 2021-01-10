@@ -7,6 +7,7 @@ Created on Fri Jan  8 15:39:32 2021
 
 import json
 import random
+import re
 
 
 # Split the command on a character and always return an array with at least length 2
@@ -17,7 +18,7 @@ def split(command, character):
     return items
 
 
-def parseInt(to_convert, base=None):
+def parseInt(to_convert):
     """Converts a string to an integer with the
     given base. If base is None and the string starts
     with a 0, automatically resolve the given base.
@@ -38,19 +39,17 @@ def parseInt(to_convert, base=None):
     Returns:
         int: The converted integer.
     """
-
+    
+    to_convert = to_convert.lower()
+    
     # Check if a base representation is given in the string
     # and it is requested that we auto determine the base.
-    if base is None and len(to_convert) > 1 and to_convert[0] == "0":
-        # Hexadecimal.
-        if to_convert[1].lower() == "x":
-            base = 16
-        
-        # Octal.
-        else:
-            base = 8
+    if re.match("0x.*", to_convert):
+        base = 16
     
-    # Otherwise we assume the base is 10.
+    elif re.match("0o.*", to_convert):
+        base = 8
+    
     else:
         base = 10
 
