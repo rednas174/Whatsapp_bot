@@ -1,5 +1,3 @@
-
-
 from numpy.random import seed
 from numpy.random import randint as numpy_randint
 
@@ -27,7 +25,7 @@ def roll_dice(command:str):
     
     # Splits the xDy into x and y, splitsing on the character 'D' (of 'd' for geklapte jonkos who can't follow basic instructions).
     items[1] = items[1].upper()
-    amount, dice_size = items[1].split("D")
+    amount, dice_size = utils.split_roll_data(items[1], "D")
     offset = 0
     if "+" in dice_size:
         dice_size, offset = dice_size.split("+")
