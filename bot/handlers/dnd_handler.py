@@ -33,7 +33,6 @@ def roll_dice(command:str):
     
     # Split and check if amount of rolls isn't absurdly high
     amount, dice_size = utils.parse_int(amount), utils.parse_int(dice_size)
-
     if amount > 10000000:
         return utils.gen_send_data("Sorry, but this is too many dice rolls...")
 
