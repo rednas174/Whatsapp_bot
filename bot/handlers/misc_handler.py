@@ -1,13 +1,14 @@
 from bs4 import BeautifulSoup
 import urllib3
 import datetime
+import random
 
 # If someone wants to impersonate and fake a horoscope website, I'm fine with it tbh
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 horoscopes = {"ARIES": 1, "TAURUS": 2, "GEMINI": 3, "CANCER": 4, "LEO": 5, "VIRGO": 6, "LIBRA": 7, "SCORPIO": 8, "SAGITTARIUS": 9, "CAPRICORN": 10, "AQUARIUS": 11, "PISCES": 12}
 cached_horoscopes = {"ARIES": '', "TAURUS": '', "GEMINI": '', "CANCER": '', "LEO": '', "VIRGO": '', "LIBRA": '', "SCORPIO": '', "SAGITTARIUS": '', "CAPRICORN": '', "AQUARIUS": '', "PISCES": ''}
-
+UwUs = ["UwU", "OwO", ">w<", "^w^", "°w°", ";w;"]
 
 def get_help(command:str):
     """
@@ -32,6 +33,8 @@ def get_group_link(command:str):
     Get the group-invite link for the grasmaaier chat
     """
     items = command.split(" ")
+    
+    # Handle help command
     if len(items) == 2:
         if items[1] == "help":
             return ("*Syntax help for /link:*\n"
@@ -53,6 +56,8 @@ def get_horoscope(command:str):
         String with response to client.
     """
     items = command.split(" ")
+    
+    # Handle help command
     if len(items) == 2:
         if items[1] == "help":
             return ("*Syntax help for /horoscope:*\n"
@@ -134,6 +139,8 @@ def get_repeated_command(command):
 
 def get_bms_script(command):
     items = command.split(" ")
+    
+    # Handle help command
     if len(items) == 2:
         if items[1] == "help":
             return ("*Syntax help for /bms:*\n"
@@ -142,38 +149,44 @@ def get_bms_script(command):
                   + "Like, there's nothing else this command could possibly do except send the bee movie script :/")
         
     elif len(items) == 1:
+        # Open the file and send the contents back
         f = open("./bot/bee_movie_script.txt", 'r')
         script = f.read()
         f.close()
         return script
     
     elif len(items) == 8:
+        # Just a fun easter egg ;)
         return "Oh look who has checked the code ;)"
     
     else:
-        return "Error in the syntax"
+        return "_Error in the syntax_"
     
 
 def agree(command):
     items = command.split(" ")
+    
+    # Handle help command
     if len(items) == 2:
         if items[1] == "help":
             return ("*Syntax help for /agree:*\n"
                   + "agrees wit whatever you said\n"
                   + "Example: '/agree'.")
         else:
-            return "_Error in syntax_"
+            return "_Error in the syntax_"
         
     elif len(items) == 1:
         return ("Yes, you are _objectively_ right my friend.\n"
               + "Not even science could ever hope to achieve the impossibility that is proving you wrong :)")
     
     else:
-        return "_Error in syntax_"
+        return "_Error in the syntax_"
 
 
 def disagree(command):
     items = command.split(" ", 1)
+    
+    # Handle help command
     if len(items) == 2:
         if items[1] == "help":
             return ("*Syntax help for /disagree:*\n"
@@ -186,16 +199,20 @@ def disagree(command):
         return "Oh boi, this is completely fucking idiotic and outrageous. How can someone with such low intelligence even normally eat without choking to death?????"
     
     else:
-        return "_Error in syntax_"
+        return "_Error in the syntax_"
 
 
 def get_updates(command):
     items = command.split(" ", 1)
+    
+    # Handle help command
     if len(items) == 2:
         if items[1] == "help":
             return ("*Syntax help for /updatelog:*\n"
                   + "Shows the latest updates, no need to add anything after.\n"
                   + "Example: '/updatelog'.")
+    
+    #handle log request
     elif len(items) == 1:
         return ("*Latest updates:*\n"
               + "_Added the following commands:_\n"
@@ -203,3 +220,29 @@ def get_updates(command):
               + "\n"
               + "_Changed the functionality of the following commands:_\n"
               + "/roll")
+
+
+def UwUify(command):
+    items = command.split(" ", 1)
+    if len(items) == 2:
+        if items[1] == "help":
+            return ("*Swyntax hewp for /updatewog: >w<*\n"
+                  + "Impwoves da twext to UwU wangwuage OwO\n"
+                  + "Exwampwe: '/UwUify This is normal text' UwU.")
+        else:
+            
+            # Generic cursifiers
+            items[1] = items[1].replace("th", "d")
+            items[1] = items[1].replace("r", "w")
+            items[1] = items[1].replace("l", "w")
+            items[1] = items[1].replace("is", "ish")
+            items[1] = items[1].replace("te", "twe")
+            
+            # 1 out of every 5 dot enters become cursed
+            for i in range(len(items[1])):
+                if random.randint(1,2) == 1:
+                    if items[1][i:i+2] == ".\n":
+                        items[1] = items[1][:i+1] + " " + UwUs[random.randint(0,len(UwUs)-1)] + items[1][i+1:]
+            return items[1]
+    else:
+        return "Ewwow in de swyntax >w<"
