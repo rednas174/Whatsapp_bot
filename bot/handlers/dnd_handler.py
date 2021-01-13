@@ -24,6 +24,9 @@ def roll_dice(command:str):
     elif items[1] == "joint":
         return utils.gen_send_data("Hierbij een bon voor een gratis JONKO!")
     
+    elif items[1] == "rick":
+        return utils.get_rickroll_text()
+    
     # Splits the xDy into x and y, splitsing on the character 'D' (of 'd' for geklapte jonkos who can't follow basic instructions).
     items[1] = items[1].upper()
     amount, dice_size = utils.split_roll_data(items[1], "D")
