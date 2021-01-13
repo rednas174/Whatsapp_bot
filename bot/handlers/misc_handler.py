@@ -228,7 +228,7 @@ def UwUify(command):
     items = command.split(" ", 1)
     if len(items) == 2:
         if items[1] == "help":
-            return ("*Swyntax hewp for /updatewog: >w<*\n"
+            return ("*Swyntax hewp for /UwUify: >w<*\n"
                   + "Impwoves da twext to UwU wangwuage OwO\n"
                   + "Exwampwe: '/UwUify This is normal text' UwU.")
         else:
@@ -244,7 +244,7 @@ def UwUify(command):
             for i in range(len(items[1])):
                 if random.randint(1,2) == 1:
                     if items[1][i:i+2] == ".\n":
-                        items[1] = items[1][:i+1] + " " + UwUs[random.randint(0,len(UwUs)-1)] + items[1][i+1:]
+                        items[1] = items[1][:i+1] + " " + UwUs[random.randint(0,len(UwUs)-1)] + items[1][i+1:] + " >w<"
             return items[1]
     else:
         return "Ewwow in de swyntax >w<"
