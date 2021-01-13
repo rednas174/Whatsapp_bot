@@ -14,14 +14,15 @@ def get_help(command:str):
     Returns:
         List of available bot commands
     """
-    return ("Current commands available:\n"
+    return ("*Current commands available:(\n"
           + "/create_character\n"
           + "/help\n"
           + "/link\n"
           + "/roll\n"
           + "/repeat\n"
           + "/horoscope\n"
-          + "Add \'help\' after a command to get the syntax.")
+          + "/bms\n"
+          + "_Add \'help\' after a command to get the syntax._")
 
 
 def get_group_link(command:str):
@@ -31,7 +32,7 @@ def get_group_link(command:str):
     items = command.split(" ")
     if len(items) == 2:
         if items[1] == "help":
-            return ("Syntax help for the /link command:\n"
+            return ("*Syntax help for /link:*\n"
                   + "just use \'/link\'...\n"
                   + "Out of sheer spite I will make you retype the command\n"
                   + ">:D\n")
@@ -52,7 +53,7 @@ def get_horoscope(command:str):
     items = command.split(" ")
     if len(items) == 2:
         if items[1] == "help":
-            return ("Syntax help for /horoscope:\n"
+            return ("*Syntax help for /horoscope:*\n"
                   + "Simply add your sign after the command\n"
                   + "Example: '/horoscope pisces'.")
         items[1] = items[1].upper()
@@ -118,7 +119,7 @@ def get_repeated_command(command):
     items = command.split(" ", 1)
     if len(items) == 2:
         if items[1] == "help":
-            return ("Syntax help for /repeat:\n"
+            return ("*Syntax help for /repeat:*\n"
                   + "Repeats the text you give it.\n"
                   + "\n"
                   + "Currently, it has a limit of 10.000 characters, and adds \" at the beginning and end.\n"
@@ -133,7 +134,7 @@ def get_bms_script(command):
     items = command.split(" ")
     if len(items) == 2:
         if items[1] == "help":
-            return ("Syntax help for /bms:\n"
+            return ("*Syntax help for /bms:*\n"
                   + "Just use '/bms'...\n"
                   + "\n"
                   + "Like, there's nothing else this command could possibly do except send the bee movie script :/")

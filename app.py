@@ -8,8 +8,7 @@ Created on Fri Jan  8 15:39:32 2021
 #==================================================================#
 # TODO:                                                            #
 #   |                                                              #
-#   +-> Add /agree, /disagree, /UwUify and /bms (bee movie script) #
-# V +-> Also add /horoscope [thingy] command, and /repeat          #
+#   +-> Add /agree, /disagree, /UwUify                             #
 #==================================================================#
 
 # The app requires a specific message 
@@ -42,7 +41,7 @@ def result():
     print(">>>", data_from_client["senderMessage"])
     
     if len(data_from_client["senderMessage"]) > 10000:
-        return "Suck a huge fat cock, I'm not gonna repeat some huge mega uber triple style ginormous bullshit spam"
+        return "Suck a huge fat cock, I'm not gonna repeat some _*huge mega uber triple style ginormous*_ bullshit spam"
     
     try:
         # Because everyone keeps saying /help
