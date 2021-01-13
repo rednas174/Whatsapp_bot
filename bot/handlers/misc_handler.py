@@ -220,7 +220,7 @@ def get_updates(command: str):
     elif len(items) == 1:
         return ("*Latest updates:*\n"
               + "_Added the following commands:_\n"
-              + "/agree, /disagree, /horoscope, /bms, /repeat and /UwUify\n"
+              + "/agree, /disagree, /horoscope, /bms, /repeat and /UwUify /f /disclaimer\n"
               + "\n"
               + "_Changed the functionality of the following commands:_\n"
               + "/roll")
@@ -257,11 +257,23 @@ def F(command: str):
     if len(items) == 2:
         if items[1] == "help":
             return ("*Syntax for /f:*\n"
-                  + "_*F*_")
+                  + "A beautiful F")
         else:
             return "_Error in the syntax_"
     if len(items) == 1:
-        return "_*F*_"
+        return """⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢀⡤⢶⣶⣶⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢀⣠⣤⣤⣤⣿⣧⣀⣀⣀⣀⣀⣀⣀⣀⣤⡄⠀
+⢠⣾⡟⠋⠁⠀⠀⣸⠇⠈⣿⣿⡟⠉⠉⠉⠙⠻⣿⡀
+⢺⣿⡀⠀⠀⢀⡴⠋⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠙⠇
+⠈⠛⠿⠶⠚⠋⣀⣤⣤⣤⣿⣿⣇⣀⣀⣴⡆⠀⠀⠀
+⠀⠀⠀⠀⠠⡞⠋⠀⠀⠀⣿⣿⡏⠉⠛⠻⣿⡀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⡇⠀⠀⠀⠈⠁⠀⠀
+⠀⠀⣠⣶⣶⣶⣶⡄⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀
+⠀⢰⣿⠟⠉⠙⢿⡟⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀
+⠀⢸⡟⠀⠀⠀⠘⠀⠀⠀⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀
+⠀⠈⢿⡄⠀⠀⠀⠀⠀⣼⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠙⠷⠶⠶⠶⠿⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀"""
 
 def get_disclaimer(command: str):
     items = command.split(" ", 1)
