@@ -97,7 +97,10 @@ def get_horoscope(command:str):
                 
         except KeyError:
             return "Sorry, but it seems like that wasn't a valid horoscope option ;("
-
+    else:
+        return "Oops, you need to add your zodiac sign for this to work."
+    
+    
 def get_repeated_command(command):
     """
     Functionality:
