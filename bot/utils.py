@@ -160,4 +160,20 @@ Never gonna let you down
 Never gonna run around and desert you
 Never gonna make you cry
 Never gonna say goodbye
-Never gonna tell a…"""
+Never gonna tell a lie and hurt you
+No, I'm never gonna give you up
+No, I'm never gonna let you down
+No, I'll never run around and hurt you
+Never, ever desert you
+We've known each other for so long
+Your heart's been aching but
+Never gonna give you up
+Never gonna let you down
+Never gonna run around and desert you
+Never gonna make you cry
+Never gonna say goodbye
+Never gonna tell a lie and hurt you
+No, I'm never gonna give you up
+No, I'm never gonna let you down
+No, I'll never run around and hurt you
+I'll never, ever desert you"""
