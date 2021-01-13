@@ -25,7 +25,9 @@ def get_help(command:str):
           + "/bms\n"
           + "/agree\n"
           + "/disagree\n"
-          + "_Add \'help\' after a command to get the syntax._")
+          + "/updatelog\n"
+          + "/UwUify\n"
+          + "_Add 'help' after a command to get the syntax._")
 
 
 def get_group_link(command:str):
@@ -216,7 +218,7 @@ def get_updates(command):
     elif len(items) == 1:
         return ("*Latest updates:*\n"
               + "_Added the following commands:_\n"
-              + "/agree, /disagree, /horoscope, /bms and /repeat\n"
+              + "/agree, /disagree, /horoscope, /bms, /repeat and /UwUify\n"
               + "\n"
               + "_Changed the functionality of the following commands:_\n"
               + "/roll")
