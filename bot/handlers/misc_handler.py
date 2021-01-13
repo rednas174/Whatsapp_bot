@@ -10,7 +10,7 @@ horoscopes = {"ARIES": 1, "TAURUS": 2, "GEMINI": 3, "CANCER": 4, "LEO": 5, "VIRG
 cached_horoscopes = {"ARIES": '', "TAURUS": '', "GEMINI": '', "CANCER": '', "LEO": '', "VIRGO": '', "LIBRA": '', "SCORPIO": '', "SAGITTARIUS": '', "CAPRICORN": '', "AQUARIUS": '', "PISCES": ''}
 UwUs = ["UwU", "OwO", ">w<", "^w^", "°w°", ";w;"]
 
-def get_help(command:str):
+def get_help(command: str):
     """
     Returns:
         List of available bot commands
@@ -27,10 +27,12 @@ def get_help(command:str):
           + "/disagree\n"
           + "/updatelog\n"
           + "/UwUify\n"
+          + "/f\n"
+          + "/disclaimer\n"
           + "_Add 'help' after a command to get the syntax._")
 
 
-def get_group_link(command:str):
+def get_group_link(command: str):
     """
     Get the group-invite link for the grasmaaier chat
     """
@@ -46,7 +48,7 @@ def get_group_link(command:str):
     return "https://chat.whatsapp.com/L2xVHEBzWDM0cXWjif8TDf"
 
 
-def get_horoscope(command:str):
+def get_horoscope(command: str):
     """
     Functionality:
         Gets the current horoscope.
@@ -111,7 +113,7 @@ def get_horoscope(command:str):
         return "Oops, you need to (only) add your zodiac sign for this to work."
     
     
-def get_repeated_command(command):
+def get_repeated_command(command: str):
     """
     Functionality:
         Repeats a given string.
@@ -139,7 +141,7 @@ def get_repeated_command(command):
         return "Just add some text after the command you clapped jonko >:("
 
 
-def get_bms_script(command):
+def get_bms_script(command: str):
     items = command.split(" ")
     
     # Handle help command
@@ -165,7 +167,7 @@ def get_bms_script(command):
         return "_Error in the syntax_"
     
 
-def agree(command):
+def agree(command: str):
     items = command.split(" ")
     
     # Handle help command
@@ -185,7 +187,7 @@ def agree(command):
         return "_Error in the syntax_"
 
 
-def disagree(command):
+def disagree(command: str):
     items = command.split(" ", 1)
     
     # Handle help command
@@ -204,7 +206,7 @@ def disagree(command):
         return "_Error in the syntax_"
 
 
-def get_updates(command):
+def get_updates(command: str):
     items = command.split(" ", 1)
     
     # Handle help command
@@ -224,7 +226,7 @@ def get_updates(command):
               + "/roll")
 
 
-def UwUify(command):
+def UwUify(command: str):
     items = command.split(" ", 1)
     if len(items) == 2:
         if items[1] == "help":
@@ -248,3 +250,37 @@ def UwUify(command):
             return items[1]
     else:
         return "Ewwow in de swyntax >w<"
+
+
+def F(command: str):
+    items = command.split(" ", 1)
+    if len(items) == 2:
+        if items[1] == "help":
+            return ("*Syntax for /f:*\n"
+                  + "_*F*_")
+        else:
+            return "_Error in the syntax_"
+    if len(items) == 1:
+        return "_*F*_"
+
+def get_disclaimer(command: str):
+    items = command.split(" ", 1)
+    if len(items) == 2:
+        if items[1] == "help":
+            return ("*Syntax for /disclaimer:*\n"
+                  + "Get the disclaimer from the license\n"
+                  + "Example: /disclaimer\n"
+                  + "It's simple")
+        else:
+            return "_Error in the syntax_"
+    
+    elif len(items) == 1:
+        f = open("./README.md", 'r')
+        text = f.read()
+        f.close()
+        start_index = text.find("## License")+12
+        end_index   = text.find("\n\n", start_index)
+        return "*Disclaimer using this bot*\n\n" + text[start_index:end_index]
+    
+    else:
+        return "_Error in the syntax_"

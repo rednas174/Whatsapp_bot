@@ -44,38 +44,44 @@ def result():
         return "Suck a huge fat cock, I'm not gonna repeat some _*huge mega uber triple style ginormous*_ bullshit spam"
     
     try:
-        if data_from_client['senderMessage'][:5] == "/help":
+        if data_from_client['senderMessage'][:5]    == "/help":
             return utils.gen_send_data(misc_handler.get_help(data_from_client["senderMessage"]))
         
-        elif data_from_client['senderMessage'][:5] == "/roll":
+        elif data_from_client['senderMessage'][:5]  == "/roll":
             return utils.gen_send_data(dnd_handler.roll_dice(data_from_client["senderMessage"]))
             
-        elif data_from_client['senderMessage'][:5] == "/link": 
+        elif data_from_client['senderMessage'][:5]  == "/link": 
             return utils.gen_send_data(misc_handler.get_group_link(data_from_client["senderMessage"]))
     
         elif data_from_client['senderMessage'][:17] == "/create_character":
             return utils.gen_send_data(dnd_handler.create_character(data_from_client["senderMessage"]))
         
-        elif data_from_client['senderMessage'][:7] == "/repeat":
+        elif data_from_client['senderMessage'][:7]  == "/repeat":
             return utils.gen_send_data(misc_handler.get_repeated_command(data_from_client['senderMessage']))
         
         elif data_from_client['senderMessage'][:10] == "/horoscope":
             return utils.gen_send_data(misc_handler.get_horoscope(data_from_client['senderMessage']))
 
-        elif data_from_client['senderMessage'][:4] == "/bms":
+        elif data_from_client['senderMessage'][:4]  == "/bms":
             return utils.gen_send_data(misc_handler.get_bms_script(data_from_client['senderMessage']))
 
-        elif data_from_client['senderMessage'][:6] == "/agree":
+        elif data_from_client['senderMessage'][:6]  == "/agree":
             return utils.gen_send_data(misc_handler.agree(data_from_client['senderMessage']))
 
-        elif data_from_client['senderMessage'][:9] == "/disagree":
+        elif data_from_client['senderMessage'][:9]  == "/disagree":
             return utils.gen_send_data(misc_handler.disagree(data_from_client['senderMessage']))
         
         elif data_from_client['senderMessage'][:10] == "/updatelog":
             return utils.gen_send_data(misc_handler.get_updates(data_from_client['senderMessage']))
         
-        elif data_from_client['senderMessage'][:7] == "/UwUify":
+        elif data_from_client['senderMessage'][:7]  == "/UwUify":
             return utils.gen_send_data(misc_handler.UwUify(data_from_client['senderMessage']))
+        
+        elif data_from_client['senderMessage'][:11] == "/disclaimer":
+            return utils.gen_send_data(misc_handler.get_disclaimer(data_from_client['senderMessage']))
+        
+        elif data_from_client['senderMessage'][:2]  == "/f":
+            return utils.gen_send_data(misc_handler.F(data_from_client['senderMessage']))
 
     except Exception as e:
         print(e)
