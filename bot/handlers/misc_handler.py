@@ -170,7 +170,7 @@ def agree(command):
 
 
 def disagree(command):
-    items = command.split(" ")
+    items = command.split(" ", 1)
     if len(items) == 2:
         if items[1] == "help":
             return ("*Syntax help for /disagree:*\n"
