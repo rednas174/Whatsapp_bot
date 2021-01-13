@@ -38,25 +38,21 @@ def result():
     data_from_client = request.get_json()
     
     # Print the contents of the message
-    print(">>>", data_from_client["senderMessage"])
+    print(">>>", data_from_client["senderMessage"][:100].replace("\n", " -"))
     
     if len(data_from_client["senderMessage"]) > 10000:
         return "Suck a huge fat cock, I'm not gonna repeat some _*huge mega uber triple style ginormous*_ bullshit spam"
     
     try:
-        # Because everyone keeps saying /help
         if data_from_client['senderMessage'][:5] == "/help":
             return utils.gen_send_data(misc_handler.get_help(data_from_client["senderMessage"]))
         
-        # Handle if the message comes from the /roll trigger
         elif data_from_client['senderMessage'][:5] == "/roll":
             return utils.gen_send_data(dnd_handler.roll_dice(data_from_client["senderMessage"]))
             
-        # Handle if the message comes from the /link trigger
         elif data_from_client['senderMessage'][:5] == "/link": 
             return utils.gen_send_data(misc_handler.get_group_link(data_from_client["senderMessage"]))
     
-        # Handle if the message comes from the /create_character trigger
         elif data_from_client['senderMessage'][:17] == "/create_character":
             return utils.gen_send_data(dnd_handler.create_character(data_from_client["senderMessage"]))
         
@@ -77,6 +73,9 @@ def result():
         
         elif data_from_client['senderMessage'][:10] == "/updatelog":
             return utils.gen_send_data(misc_handler.get_updates(data_from_client['senderMessage']))
+        
+        elif data_from_client['senderMessage'][:7] == "/UwUify":
+            return utils.gen_send_data(misc_handler.UwUify(data_from_client['senderMessage']))
 
     except Exception as e:
         print(e)
