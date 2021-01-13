@@ -5,11 +5,12 @@ Created on Fri Jan  8 15:39:32 2021
 """
 
 
-#===============================================================#
-# TODO:                                                         #
-#   |                                                           #
-#   +-> Fix /roll help formatting, it fucking sucks buttholes   #
-#===============================================================#
+#==================================================================#
+# TODO:                                                            #
+#   |                                                              #
+#   +-> Add /agree, /disagree, /UwUify and /bms (bee movie script) #
+#   +-> Also add /horoscope [thingy] command, and /repeat          #
+#==================================================================#
 
 # The app requires a specific message 
 #{
@@ -57,7 +58,11 @@ def result():
         elif data_from_client['senderMessage'][:17] == "/create_character":
             return utils.gen_send_data(dnd_handler.create_character(data_from_client["senderMessage"]))
         
-        #elif data_from_client['senderMessage'][:17] == "/horoscope":
+        elif data_from_client['senderMessage'][:7] == "/repeat":
+            return utils.gen_send_data("\"" + data_from_client['senderMessage'][8:] + "\"")
+        
+        elif data_from_client['senderMessage'][:10] == "/horoscope":
+            return utils.gen_send_data(misc_handler.get_horoscope(data_from_client['senderMessage'][8:]))
 
     except Exception as e:
         print(e)
