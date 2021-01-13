@@ -8,7 +8,7 @@ Created on Fri Jan  8 15:39:32 2021
 #==================================================================#
 # TODO:                                                            #
 #   |                                                              #
-#   +-> Add /agree, /disagree, /UwUify                             #
+#   +-> Add /UwUify and /updatelog                                 #
 #==================================================================#
 
 # The app requires a specific message 
@@ -68,6 +68,12 @@ def result():
 
         elif data_from_client['senderMessage'][:4] == "/bms":
             return utils.gen_send_data(misc_handler.get_bms_script(data_from_client['senderMessage']))
+
+        elif data_from_client['senderMessage'][:6] == "/agree":
+            return utils.gen_send_data(misc_handler.agree(data_from_client['senderMessage']))
+
+        elif data_from_client['senderMessage'][:9] == "/disagree":
+            return utils.gen_send_data(misc_handler.disagree(data_from_client['senderMessage']))
 
     except Exception as e:
         print(e)

@@ -22,6 +22,8 @@ def get_help(command:str):
           + "/repeat\n"
           + "/horoscope\n"
           + "/bms\n"
+          + "/agree\n"
+          + "/disagree\n"
           + "_Add \'help\' after a command to get the syntax._")
 
 
@@ -150,3 +152,35 @@ def get_bms_script(command):
     
     else:
         return "Error in the syntax"
+    
+
+def agree(command):
+    items = command.split(" ")
+    if len(items) == 2:
+        if items[1] == "help":
+            return ("*Syntax help for /agree:*\n"
+                  + "agrees wit whatever you said\n"
+                  + "Example: '/agree'.")
+        else:
+            return "_Error in syntax_"
+        
+    elif len(items) == 1:
+        return ("Yes, you are _objectively_ right my friend.\n"
+              + "Not even science could ever hope to achieve the impossible that is proving you wrong :)")
+
+
+def disagree(command):
+    items = command.split(" ")
+    if len(items) == 2:
+        if items[1] == "help":
+            return ("*Syntax help for /disagree:*\n"
+                  + "Disagrees with the person you specify\n"
+                  + "Example: '/disagree GeklapteJonko'.")
+        else:
+            return "Oh boi, " + items[1] + " is a complete fucking idiot, this is outrageous. How can someone with such low intelligence even normally eat without choking to death?????"
+    
+    elif len(items) == 1:
+        return "Oh boi, this is completely fucking idiotic and outrageous. How can someone with such low intelligence even normally eat without choking to death?????"
+    
+    else:
+        return "_Error in syntax_"
