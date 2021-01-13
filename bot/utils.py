@@ -134,7 +134,6 @@ def get_rickroll_text():
     Returns:
         string with the entire lyrics of
         Rick astley's "never gonna give you up"
-
     """
     
     return """We're no strangers to love
