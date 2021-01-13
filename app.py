@@ -9,7 +9,7 @@ Created on Fri Jan  8 15:39:32 2021
 # TODO:                                                            #
 #   |                                                              #
 #   +-> Add /agree, /disagree, /UwUify and /bms (bee movie script) #
-#   +-> Also add /horoscope [thingy] command, and /repeat          #
+# V +-> Also add /horoscope [thingy] command, and /repeat          #
 #==================================================================#
 
 # The app requires a specific message 
@@ -40,6 +40,7 @@ def result():
     
     # Print the contents of the message
     print(">>>", data_from_client["senderMessage"])
+    
     if len(data_from_client["senderMessage"]) > 10000:
         return "Suck a huge fat cock, I'm not gonna repeat some huge mega uber triple style ginormous bullshit spam"
     
@@ -64,7 +65,10 @@ def result():
             return utils.gen_send_data(misc_handler.get_repeated_command(data_from_client['senderMessage']))
         
         elif data_from_client['senderMessage'][:10] == "/horoscope":
-            return utils.gen_send_data(misc_handler.get_horoscope(data_from_client['senderMessage'][8:]))
+            return utils.gen_send_data(misc_handler.get_horoscope(data_from_client['senderMessage']))
+
+        elif data_from_client['senderMessage'][:4] == "/bms":
+            return utils.gen_send_data(misc_handler.get_bms_script(data_from_client['senderMessage']))
 
     except Exception as e:
         print(e)

@@ -98,7 +98,7 @@ def get_horoscope(command:str):
         except KeyError:
             return "Sorry, but it seems like that wasn't a valid horoscope option ;("
     else:
-        return "Oops, you need to add your zodiac sign for this to work."
+        return "Oops, you need to (only) add your zodiac sign for this to work."
     
     
 def get_repeated_command(command):
@@ -117,9 +117,8 @@ def get_repeated_command(command):
     """
     items = command.split(" ", 1)
     if len(items) == 2:
-        print(items[1])
         if items[1] == "help":
-            return ("Syntax help for /repeat\n"
+            return ("Syntax help for /repeat:\n"
                   + "Repeats the text you give it.\n"
                   + "\n"
                   + "Currently, it has a limit of 10.000 characters, and adds \" at the beginning and end.\n"
@@ -128,4 +127,25 @@ def get_repeated_command(command):
             return "\"" + items[1] + "\""
     else:
         return "Just add some text after the command you clapped jonko >:("
+
+
+def get_bms_script(command):
+    items = command.split(" ")
+    if len(items) == 2:
+        if items[1] == "help":
+            return ("Syntax help for /bms:\n"
+                  + "Just use '/bms'...\n"
+                  + "\n"
+                  + "Like, there's nothing else this command could possibly do except send the bee movie script :/")
+        
+    elif len(items) == 1:
+        f = open("./bot/bee_movie_script.txt", 'r')
+        script = f.read()
+        f.close()
+        return script
     
+    elif len(items) == 8:
+        return "Oh look who has checked the code ;)"
+    
+    else:
+        return "Error in the syntax"
