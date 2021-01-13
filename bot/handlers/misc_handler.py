@@ -14,7 +14,7 @@ def get_help(command:str):
     Returns:
         List of available bot commands
     """
-    return ("*Current commands available:(\n"
+    return ("*Current commands available:*\n"
           + "/create_character\n"
           + "/help\n"
           + "/link\n"
@@ -166,7 +166,10 @@ def agree(command):
         
     elif len(items) == 1:
         return ("Yes, you are _objectively_ right my friend.\n"
-              + "Not even science could ever hope to achieve the impossible that is proving you wrong :)")
+              + "Not even science could ever hope to achieve the impossibility that is proving you wrong :)")
+    
+    else:
+        return "_Error in syntax_"
 
 
 def disagree(command):
@@ -184,3 +187,19 @@ def disagree(command):
     
     else:
         return "_Error in syntax_"
+
+
+def get_updates(command):
+    items = command.split(" ", 1)
+    if len(items) == 2:
+        if items[1] == "help":
+            return ("*Syntax help for /updatelog:*\n"
+                  + "Shows the latest updates, no need to add anything after.\n"
+                  + "Example: '/updatelog'.")
+    elif len(items) == 1:
+        return ("*Latest updates:*\n"
+              + "_Added the following commands:_\n"
+              + "/agree, /disagree, /horoscope, /bms and /repeat\n"
+              + "\n"
+              + "_Changed the functionality of the following commands:_\n"
+              + "/roll")

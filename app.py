@@ -74,6 +74,9 @@ def result():
 
         elif data_from_client['senderMessage'][:9] == "/disagree":
             return utils.gen_send_data(misc_handler.disagree(data_from_client['senderMessage']))
+        
+        elif data_from_client['senderMessage'][:10] == "/updatelog":
+            return utils.gen_send_data(misc_handler.get_updates(data_from_client['senderMessage']))
 
     except Exception as e:
         print(e)
