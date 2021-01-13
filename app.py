@@ -40,6 +40,8 @@ def result():
     
     # Print the contents of the message
     print(">>>", data_from_client["senderMessage"])
+    if len(data_from_client["senderMessage"]) > 10000:
+        return "Suck a huge fat cock, I'm not gonna repeat some huge mega uber triple style ginormous bullshit spam"
     
     try:
         # Because everyone keeps saying /help
@@ -59,7 +61,7 @@ def result():
             return utils.gen_send_data(dnd_handler.create_character(data_from_client["senderMessage"]))
         
         elif data_from_client['senderMessage'][:7] == "/repeat":
-            return utils.gen_send_data("\"" + data_from_client['senderMessage'][8:] + "\"")
+            return utils.gen_send_data(misc_handler.get_repeated_command(data_from_client['senderMessage']))
         
         elif data_from_client['senderMessage'][:10] == "/horoscope":
             return utils.gen_send_data(misc_handler.get_horoscope(data_from_client['senderMessage'][8:]))

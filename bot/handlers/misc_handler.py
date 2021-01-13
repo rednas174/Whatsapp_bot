@@ -97,4 +97,32 @@ def get_horoscope(command:str):
                 
         except KeyError:
             return "Sorry, but it seems like that wasn't a valid horoscope option ;("
+
+def get_repeated_command(command):
+    """
+    Functionality:
+        Repeats a given string.
+        Out of precaution, " " are put around the string to make sure the
+        text always has at least some context. Maybe this is a bit too much,
+        but for the time being, this is how it is.
+        
+    Parameters:
+        command: The given command to be repeated
+
+    Returns:
+        string to the client
+    """
+    items = command.split(" ", 1)
+    if len(items) == 2:
+        print(items[1])
+        if items[1] == "help":
+            return ("Syntax help for /repeat\n"
+                  + "Repeats the text you give it.\n"
+                  + "\n"
+                  + "Currently, it has a limit of 10.000 characters, and adds \" at the beginning and end.\n"
+                  + "Example '/repeat test'")
+        else:
+            return "\"" + items[1] + "\""
+    else:
+        return "Just add some text after the command you clapped jonko >:("
     
