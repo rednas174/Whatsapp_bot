@@ -47,13 +47,13 @@ def roll_dice(command:str):
         # Generate array of random dicerolls
         total = 0
         if amount <= 10:
-            rolls = numpy_randint(0, dice_size + 1, amount)
+            rolls = numpy_randint(1, dice_size + 1, amount)
             total = sum(rolls)
             for i in range(amount):
                 output_data += "Roll " + str(i + 1) + " = " + str(rolls[i]) + "\n"
             output_data += "\n"
         else:
-            total = round(random.triangular(0,dice_size) * amount)
+            total = round(random.triangular(1,dice_size) * amount)
     
         output_data += "Total roll "
         if offset > 0:
