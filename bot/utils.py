@@ -4,8 +4,13 @@ import re
 def split_string(command:str, character:str):
     """
     Split incoming command on a character
+    
+    args:
+        command: string that's the command.
+        character: the character on which the command should be split.
+    
     Returns:
-        Array with at least length 2 containing the split command
+        Array with at least length 2 containing the split command.
     """
     items = command.split(character)
     if len(items) == 1:
@@ -67,7 +72,8 @@ def parse_int(to_convert:str):
 
     Supported bases are:
     - 0x: Hexadecimal
-    - 0o or 0: Octal
+    - 0o: Octal
+    - 0b: binary
 
     The rest is interpreted as base 10.
 
@@ -107,6 +113,9 @@ def gen_send_data(data:str):
 
     Args:
         data (string): The message to be sent.
+        
+    Returns:
+        output that's compatible with the phone client.
     """
 
     message_data = {
@@ -121,6 +130,13 @@ def gen_send_data(data:str):
 
 
 def get_rickroll_text():
+    """
+    Returns:
+        string with the entire lyrics of
+        Rick astley's "never gonna give you up"
+
+    """
+    
     return """We're no strangers to love
 You know the rules and so do I
 A full commitment's what I'm thinking of
