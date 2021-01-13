@@ -43,19 +43,21 @@ def result():
     try:
         # Because everyone keeps saying /help
         if data_from_client['senderMessage'][:5] == "/help":
-            return misc_handler.get_help(data_from_client["senderMessage"])
+            return utils.gen_send_data(misc_handler.get_help(data_from_client["senderMessage"]))
         
         # Handle if the message comes from the /roll trigger
         elif data_from_client['senderMessage'][:5] == "/roll":
-            return dnd_handler.roll_dice(data_from_client["senderMessage"])
+            return utils.gen_send_data(dnd_handler.roll_dice(data_from_client["senderMessage"]))
             
         # Handle if the message comes from the /link trigger
         elif data_from_client['senderMessage'][:5] == "/link": 
-            return misc_handler.get_group_link(data_from_client["senderMessage"])
+            return utils.gen_send_data(misc_handler.get_group_link(data_from_client["senderMessage"]))
     
         # Handle if the message comes from the /create_character trigger
         elif data_from_client['senderMessage'][:17] == "/create_character":
-            return dnd_handler.create_character(data_from_client["senderMessage"])
+            return utils.gen_send_data(dnd_handler.create_character(data_from_client["senderMessage"]))
+        
+        #elif data_from_client['senderMessage'][:17] == "/horoscope":
 
     except Exception as e:
         print(e)
