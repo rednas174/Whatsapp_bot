@@ -28,7 +28,7 @@ app = Flask(__name__)
 
 # Variable for tracking the pipeline iterations
 command_recursions = 0
-def handle_command(command:str):
+def handle_command(command:str, sender:str):
     global command_recursions
     
     items = command.split(" ", 1)
@@ -42,9 +42,9 @@ def handle_command(command:str):
             if command_recursions < 100:
                 
                 # re-evaluate the second part of the command, then replace the output with the current command and evaluate that.
-                command = items[0] + " " + handle_command(items[1])
+                command = items[0] + " " + handle_command(items[1], sender)
             else:
-                return "Sorry, too many recursions..."
+                return "Recursion limit reached, sorry"
     
     try:
         if   command[:5]    == "/help":
@@ -87,7 +87,10 @@ def handle_command(command:str):
             returned_message = misc_handler.F(command)
         
         elif command[:5]    == "/poll":
-            returned_message = poll_handler.handle_poll(command)
+            if command_recursions > 0:
+                return "Unfortunately, /poll is incompatible with recursive commands"
+            else:
+                returned_message = poll_handler.handle_poll(command, sender)
         
         elif command[:6]    == "/roast":
             returned_message = misc_handler.get_roast(command)
@@ -117,7 +120,7 @@ def result():
     if len(data_from_client["senderMessage"]) > 10000:
         returned_message = "Suck a huge fat cock, I'm not gonna repeat some _*huge mega uber triple style ginormous*_ bullshit spam"
     
-    returned_message = handle_command(data_from_client["senderMessage"])
+    returned_message = handle_command(data_from_client["senderMessage"], data_from_client['senderName'])
     
     return utils.gen_send_data(returned_message)
     
