@@ -274,6 +274,9 @@ def F(command: str):
               + "   ⠀ ⢸⡟⠀⠀⠀⠘⠀⠀⠀⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀   \n"
               + "   ⠀ ⠈⢿⡄⠀⠀⠀⠀⠀⣼⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀   \n"
               + "   ⠀ ⠀⠀⠙⠷⠶⠶⠶⠿⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀   \n")
+    
+    else:
+        return "_Error in the syntax (/f)_"
 
 def get_disclaimer(command: str):
     items = command.split(" ", 1)
@@ -317,7 +320,37 @@ def get_roast(command:str):
         return "_Error in the syntax (/roast)_"
 
 
-
+def nice_cock(command: str):
+    items = command.split(" ", 1)
+    if len(items) == 2:
+        if items[1] == "help":
+            return ("*Syntax for /nicecock:*\n"
+                  + "A compliment for your cock")
+        else:
+            return "_Error in the syntax (/nicecock)_"
+    if len(items) == 1:
+        return """
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠿⢿⣿⣿⠿⠛⠿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠟⠉⠄⣀⡤⢤⣤⣈⠁⣠⡔⠶⣾⣿
+⣿⣿⣿⣿⣿⣿⣿⡿⠛⠋⠁⠄⠄⠄⣼⣿⠁⡀⢹⣿⣷⢹⡇⠄⠎⣿
+⣿⣿⣿⠿⠛⠉⠁⠄⠄⠄⠄⠄⠄⠄⠹⣇⣀⣡⣾⣿⡿⠉⠛⠒⠒⠋
+⡿⠋⠁⠄⠄⢀⣤⣤⡀⠄⠄⠄⠄⠄⠄⠈⠙⠛⠛⠉⠄⠄⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⢹⣧⡈⠿⣷⣄⣀⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢀⣠
+⠄⠄⠄⠄⠄⠈⠻⢿⣶⣌⣙⡛⠛⠿⠶⠶⠶⠶⠶⠖⣒⣒⣚⣋⡩⢱
+⠄⠄⠄⠄⠄⠄⠄⠄⠈⠉⠛⠛⠛⠻⠿⠿⠟⠛⠛⠛⠉⢉⣥⣶⣾⣿
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠒⠶⣿⣿⣿⣿⣿⣿
+⡟⠛⢻⣿⡟⠛⣿⡟⠛⠛⠛⠛⢻⣿⡿⠛⠛⠛⢻⡟⠛⠛⠛⠛⢻⣿
+⡇⠄⠄⢻⡇⠄⣿⣿⣿⠄⠄⣿⣿⡏⠄⣼⣿⣿⣿⡇⠄⣿⣿⣿⣿⣿
+⡇⠄⣧⠄⠄⠄⣿⣿⣿⠄⠄⣿⣿⡇⠄⣿⣿⣿⣿⡇⠄⣥⣥⣥⣿⣿
+⡇⠄⣿⣧⠄⠄⣿⡟⠛⠄⠄⠛⢻⣷⣄⠈⠙⠛⢹⡇⠄⠉⠉⠉⢹⣿
+⣿⡿⠛⠛⠛⢻⣿⠿⠛⠛⠛⢿⣿⣿⡿⠛⠛⠛⢻⡟⠛⣿⡿⠛⣻⣿
+⡟⠄⣼⣿⣿⣿⡇⠄⣾⣿⣧⠄⢻⡏⠄⣼⣿⣿⣿⡇⠄⡟⢀⣴⣿⣿
+⡇⠄⣿⣿⣿⣿⡄⠄⣿⣿⣿⠄⢸⡇⠄⣿⣿⣿⣿⡇⠄⣀⠈⢻⣿⣿
+⣿⣄⠈⠙⠛⢻⣧⡄⠙⠛⠉⣠⣿⣷⣄⠈⠙⠛⢹⡇⠄⣿⣧⠄⠻⣿
+"""
+    
+    else:
+        return "_Error in the syntax (/nicecock)_"
 
 
 
