@@ -30,6 +30,7 @@ def get_help(command: str):
           + "/UwUify\n"
           + "/f\n"
           + "/disclaimer\n"
+          + "/nicecock"
           + "_Add 'help' after a command to get the syntax._")
 
 
@@ -221,10 +222,10 @@ def get_updates(command: str):
     elif len(items) == 1:
         return ("*Latest updates:*\n"
               + "_Added the following commands:_\n"
-              + "/agree, /disagree, /horoscope, /bms, /repeat and /UwUify /f /disclaimer\n"
+              + "/nicecock\n"
               + "\n"
               + "_Changed the functionality of the following commands:_\n"
-              + "/roll")
+              + "- ")
 
 
 def UwUify(command: str):

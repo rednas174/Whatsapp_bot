@@ -121,9 +121,6 @@ def result():
     # Print the contents of the message
     print(">>>", data_from_client["senderMessage"][:100].replace("\n", " -"))
     
-    if len(data_from_client["senderMessage"]) > 10000:
-        returned_message = "Suck a huge fat cock, I'm not gonna repeat some _*huge mega uber triple style ginormous*_ bullshit spam"
-    
     returned_message = handle_command(data_from_client["senderMessage"], data_from_client['senderName'])
     
     return utils.gen_send_data(returned_message)
