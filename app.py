@@ -95,9 +95,12 @@ def handle_command(command:str, sender:str):
         elif command[:6]    == "/roast":
             returned_message = misc_handler.get_roast(command)
             
-        elif command[:10]    == "/nicecock":
+        elif command[:10]   == "/nicecock":
             returned_message = misc_handler.nice_cock(command)
-            
+        
+        elif command[:4]    == "/why":
+            returned_message = misc_handler.why(command)
+
             
         else: 
             returned_message = "_Error 404: Command '" + command + "' not found._"
