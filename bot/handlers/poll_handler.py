@@ -16,6 +16,7 @@ import random
 # {
 #   "number or name of person":
 #       {
+#           "__id"     : unique id for every poll
 #           "__name"   : name,
 #           "__votees" : 
 #               [
@@ -24,7 +25,6 @@ import random
 #                   ["votee", "option"],
 #                   ...
 #               ]
-#           "__id"     : unique id for every poll
 #           "Option 1" : votes,
 #           "Option 2" : votes,
 #           "Option 3" : votes,
@@ -33,6 +33,7 @@ import random
 #
 #  "number or name of person":
 #       {
+#           "__id"     : unique id for every poll
 #           "__name"   : name,
 #           "__votees" : 
 #               [
@@ -41,7 +42,6 @@ import random
 #                   ["votee", "option"],
 #                   ...
 #               ]
-#           "__id"     : unique id for every poll
 #           "Option 1" : votes,
 #           "Option 2" : votes,
 #           "Option 3" : votes,
@@ -57,7 +57,7 @@ import random
 #   >>> A poll can't have these '-[]/' characters in either its name nor its options.
 #   >>> Neither can a poll have __name of __votees as an option.
 #
-#   /poll remove
+#   /poll remove <id>
 #   >>> Removes the poll associated with that person 
 # 
 #   /poll vote <name> -<option>
@@ -240,7 +240,7 @@ def handle_poll(command:str, person:str):
                   + "_Voting for a poll:_\n"
                   + "/poll vote <name> <option>\n"
                   + "\n"
-                  + "Keep in mind that you need to follow the formatting, else there might be some naming problems."
+                  + "Keep in mind that you need to follow the formatting, else there might be some naming problems.\n"
                   + "You can also list all polls with their IDs with /poll list.\n"
                   + "then show it with /poll show <number or name (for special people ;)>")
         

@@ -30,6 +30,8 @@ def get_help(command: str):
           + "/UwUify\n"
           + "/f\n"
           + "/disclaimer\n"
+          + "/nicecock\n"
+          + "/why\n"
           + "_Add 'help' after a command to get the syntax._")
 
 
@@ -221,10 +223,10 @@ def get_updates(command: str):
     elif len(items) == 1:
         return ("*Latest updates:*\n"
               + "_Added the following commands:_\n"
-              + "/agree, /disagree, /horoscope, /bms, /repeat and /UwUify /f /disclaimer\n"
+              + "/nicecock\n"
               + "\n"
               + "_Changed the functionality of the following commands:_\n"
-              + "/roll")
+              + "- ")
 
 
 def UwUify(command: str):
@@ -352,7 +354,35 @@ def nice_cock(command: str):
     else:
         return "_Error in the syntax (/nicecock)_"
 
-
+def why(command: str):
+    items = command.split(" ", 1)
+    if len(items) == 2:
+        if items[1] == "help":
+            return ("*Syntax for /why:*\n"
+                  + "Just crying out why anyone would do this ;(")
+        else:
+            return "_Error in the syntax (/why)_"
+    if len(items) == 1:
+        return """
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠠⠀⠀⠠⠀⠀⠀⠀⠀⣀⡀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠂⠁⠀⠀⠀⠀⠀⠁⠢⡄⠉⠀⠀⠀⠈⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⡈⠀⠀⠴⠖⠉⠁⠀⠉⠑⠶⢿⠄⠲⠶⠶⠶⠠⠤⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠌⠀⠀⠀⠀⠀⣀⣤⣲⠸⠿⠿⠏⣛⣤⣠⣄⣖⠒⠒⢒⣚⢦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠔⠸⠇⠀⠀⢠⠀⠹⠗⠉⡁⠠⣀⣦⣀⠀⠉⠨⠁⠂⢐⡶⣶⣖⠚⠑⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠄⠀⠀⠀⠀⠀⠈⠉⢉⣉⢀⠀⣾⡷⣏⣹⣇⢤⣀⣀⠀⣿⣻⣯⡽⠦⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⡈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠚⠛⠛⢛⣷⠎⠋⢀⡀⠀⠀⠀⡀⠠⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠖⠊⠁⠀⠀⠀⠀⠈⠛⠉⠉⠈⢄⠀⠀⠀⠀⠀⢠⢄⡀⠀⠀⠀
+⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⠀⡀⠀⢸⡙⣦⢻⣟⢦⠀
+⠀⠀⠇⠀⠀⠀⠀⠀⠀⠀⣴⠉⠥⠬⡭⢈⣉⠐⠒⠢⠶⠦⠀⠀⠀⠰⠦⠒⠋⠁⠀⢻⣧⠀⢣⢻⡎⡏⡼⠀
+⠀⠀⠐⠄⠀⠀⠀⠀⠀⢦⡙⠶⠶⠶⠂⠤⠄⣉⣉⣤⣶⣿⣻⢿⠛⠛⠒⢈⠹⠀⢀⣠⠏⠓⠃⠀⢀⡸⠁⠀
+⠀⠀⠠⠼⣦⣤⣀⠀⠀⠀⠉⠃⠀⠀⠀⠀⢰⣤⡞⢹⢱⣋⡏⡼⣾⣗⠁⠀⢀⡞⠁⠀⠀⠀⣠⠖⠉⠀⠀⠀
+⠀⠀⠀⠀⠀⠈⠓⠯⠵⣒⣒⠴⠶⠆⠠⠤⢼⡾⠇⠈⠀⠙⠃⠗⠋⡼⠀⠀⢸⠀⠀⠀⠒⡎⠁⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠀⠀⢹⡗⠦⠤⢀⣤⠖⢏⡀⠀⠀⠀⢇⠀⠀⠀⣇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⡏⠀⠀⠙⢦⠀⠀⠘⠀⠀⠀⠸⡀⠀⠀⠀⠀⠀
+"""
+    
+    else:
+        return "_Error in the syntax (/why)_"
 
 
 
