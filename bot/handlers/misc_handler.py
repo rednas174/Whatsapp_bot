@@ -30,12 +30,9 @@ def get_help(command: str):
           + "/UwUify\n"
           + "/f\n"
           + "/disclaimer\n"
-<<<<<<< HEAD
           + "/nicecock\n"
           + "/why\n"
-=======
           + "/nicecock"
->>>>>>> ea96c68cb40b4bd5fadb9f704540f960996d6cc2
           + "_Add 'help' after a command to get the syntax._")
 
 

@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import os
-=======
 """
 Created on Fri Jan  8 15:39:32 2021
 
@@ -22,7 +19,7 @@ import bot.handlers.dnd_handler as dnd_handler
 import bot.handlers.misc_handler as misc_handler
 import bot.handlers.poll_handler as poll_handler
 import bot.utils as utils
-
+import os
 
 app = Flask(__name__)
 
@@ -131,4 +128,3 @@ def result():
         
         
 app.run(host = "0.0.0.0")
->>>>>>> ea96c68cb40b4bd5fadb9f704540f960996d6cc2
